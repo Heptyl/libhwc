@@ -1,0 +1,47 @@
+This directory contains HWComposer HAL interface, which defines the interface of
+HWComposer and is used to build a hwcomposer shared library.
+
+
+WHAT IT DOES?
+=============
+
+HWComposer is the implementation that leverages HW IPs to
+share the workload of GPU, which reduces the power consumption and
+accelerates the rendering performance.
+
+This is a dummy HWComposer. We remove the complex software code flow and hardware
+control flow. It use the simplest way to post client traget buffer to display.
+Then it can help us to bring up a new platform fast.
+
+HOW IT WAS BUILT?
+==================
+
+It needs the following libs from AOSP:
+1.  libui.so
+2.  libutils.so
+3.  libcutils.so
+4.  libsync.so
+5.  libhardware.so
+6.  libnativewindow
+7.  android.hardware.graphics.common@1.*
+8.  android.hardware.graphics.composer@2.*
+9.  android.hardware.graphics.mapper@2.*
+
+and the following libs from MediaTek:
+1.  hwcomposer.mtk_common.a
+
+All source/dependency modules of this module are already put in
+'vendor/mediatek/libs' folder.
+
+
+HOW TO USE IT?
+==============
+
+Files in this directory is used to
+generate a shared library 'libsimplehwc.so'.
+
+The shared library 'libsimplehwc.so' is loaded and invoked by
+HWComposer service at runtime when bring up.
+
+
+All the source code of this library were written by MediaTek co..
